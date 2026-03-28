@@ -1,0 +1,3 @@
+LightGBM AUC: 0.915718
+XGBoost tuned AUC: 0.785030
+Ensemble AUC: 0.915696
