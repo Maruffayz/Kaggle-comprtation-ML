@@ -60,5 +60,4 @@ python predict_submission.py
 - `scale_pos_weight` is computed from class imbalance.
 - Hyperparameter search uses `RandomizedSearchCV` with design to avoid heavy, long runs in interactive session.
 
-## GitHub
-Repository pushed to: https://github.com/Maruffayz/Kaggle-comprtation-ML
+
