@@ -50,13 +50,24 @@ This repository implements a modular, architecture-first data science pipeline f
    - RandomizedSearchCV hyperparameter tuning
    - tuned model evaluation on validation set
 
-4. **Final prediction and output** (`predict_submission.py`)
-   - test prediction (probabilities)
-   - feature importance CSV
+4. **LightGBM validation** (`src/test_lightgbm.py`)
+   - LightGBM classifier baseline and early stopping
+   - validation AUC comparison with XGBoost
+
+5. **Ensemble finalization** (`src/ensemble_model.py`)
+   - stacked average of LightGBM + XGBoost probabilities
+   - final test submission generation (`outputs/submission_ensemble.csv`)
+   - model comparison recorded in `outputs/model_comparison.txt`
 
 ## Results
-- Baseline validation ROC-AUC: `0.91210`
-- Tuned validation ROC-AUC: `0.91507`
+- Baseline validation ROC-AUC (XGBoost): `0.91210`
+- Tuned validation ROC-AUC (XGBoost): `0.91507`
+- LightGBM validation ROC-AUC (from `src/test_lightgbm.py`): `0.91572`
+- Ensemble validation ROC-AUC (avg LightGBM + XGBoost): `0.91570`
+- Submission files generated:
+  - `outputs/submission.csv` (single-model XGBoost)
+  - `outputs/submission_ensemble.csv` (LightGBM+XGBoost ensemble)
+- Model comparison output: `outputs/model_comparison.txt`
 - Best tuned params:
   - `subsample=0.6`, `n_estimators=400`, `min_child_weight=3`,
   - `max_depth=6`, `learning_rate=0.15`, `gamma=0.2`, `colsample_bytree=0.7`
