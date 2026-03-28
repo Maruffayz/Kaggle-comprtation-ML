@@ -52,8 +52,19 @@ python predict_submission.py
 ```
 
 ## Results
-- `feature_importance.csv` contains gain importance ranking.
-- `submission.csv` contains `(id, Churn)` probabilities for test set.
+- Baseline XGBoost validation ROC-AUC: `0.91210` (30 rounds)
+- Tuned XGBoost validation ROC-AUC: `0.91507`
+- Best tune parameters found:
+  - `subsample=0.6`
+  - `n_estimators=400`
+  - `min_child_weight=3`
+  - `max_depth=6`
+  - `learning_rate=0.15`
+  - `gamma=0.2`
+  - `colsample_bytree=0.7`
+- Generated files:
+  - `feature_importance.csv` (feature gain ranking)
+  - `submission.csv` (ID + predicted churn probability)
 
 ## Notes
 - Data is processed in-place with category label encoding and outlier capping.
