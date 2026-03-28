@@ -1,0 +1,11 @@
+data:
+  raw_train: data/train.csv
+  raw_test: data/test.csv
+  clean_train: data/train_clean.csv
+  clean_test: data/test_clean.csv
+models:
+  xgb_base: models/xgb_churn.model
+  xgb_tuned: models/xgb_churn_tuned.model
+outputs:
+  submission: outputs/submission.csv
+  feature_importance: outputs/feature_importance.csv
